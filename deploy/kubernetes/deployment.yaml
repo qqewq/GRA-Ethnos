@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gra-ethnos
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gra-ethnos
+  template:
+    metadata:
+      labels:
+        app: gra-ethnos
+    spec:
+      containers:
+      - name: ethnos
+        image: gra-ethnos:latest
+        env:
+        - name: N_AGENTS
+          value: "1000"
+        resources:
+          limits:
+            memory: "4Gi"
+            cpu: "2"

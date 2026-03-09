@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  ethnos:
+    build: ..
+    container_name: gra-ethnos
+    environment:
+      - N_AGENTS=100
+    volumes:
+      - ./data:/app/data
+    command: python simulations/run_ethnos.py
